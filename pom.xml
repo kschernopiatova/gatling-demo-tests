@@ -3,8 +3,8 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.gatling.demo</groupId>
-  <artifactId>gatling-maven-plugin-demo-java</artifactId>
+  <groupId>com.solvd</groupId>
+  <artifactId>gatling-eshop</artifactId>
   <version>3.11.3</version>
 
   <properties>
@@ -15,6 +15,7 @@
     <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
     <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
+    <influxdb.version>6.7.0</influxdb.version>
   </properties>
 
   <dependencies>
@@ -23,6 +24,11 @@
       <artifactId>gatling-charts-highcharts</artifactId>
       <version>${gatling.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.influxdb</groupId>
+      <artifactId>influxdb-client-java</artifactId>
+      <version>${influxdb.version}</version>
     </dependency>
   </dependencies>
 
@@ -44,10 +50,6 @@
         <groupId>io.gatling</groupId>
         <artifactId>gatling-maven-plugin</artifactId>
         <version>${gatling-maven-plugin.version}</version>
-        <configuration>
-          <!-- Enterprise Cloud (https://cloud.gatling.io/) configuration reference: https://gatling.io/docs/gatling/reference/current/extensions/maven_plugin/#working-with-gatling-enterprise-cloud -->
-          <!-- Enterprise Self-Hosted configuration reference: https://gatling.io/docs/gatling/reference/current/extensions/maven_plugin/#working-with-gatling-enterprise-self-hosted -->
-        </configuration>
       </plugin>
     </plugins>
   </build>
