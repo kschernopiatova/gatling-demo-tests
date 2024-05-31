@@ -15,7 +15,7 @@
     <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
     <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
-    <influxdb.version>6.7.0</influxdb.version>
+    <influxdb.version>7.1.0</influxdb.version>
   </properties>
 
   <dependencies>
