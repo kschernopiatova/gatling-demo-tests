@@ -12,7 +12,7 @@ import static io.gatling.javaapi.http.HttpDsl.http;
 public abstract class BasicSimulation extends Simulation {
 
     protected static final HttpProtocolBuilder HTTP_PROTOCOL = http
-            .baseUrl("http://localhost:8888")
+            .baseUrl("http://eshop:8888")
             .contentTypeHeader("application/json")
             .acceptHeader("application/json");
 
