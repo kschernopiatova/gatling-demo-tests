@@ -25,12 +25,24 @@ pipeline {
             post {
                 success {
                     script {
-                        slackSend color: '#36a64f', message: "Gatling simulation succeded!\nhttp://localhost:8080/job/gatling-shop-demo/${BUILD_NUMBER}/Gatling_20${SIMULATION}_20Report/"
+                        slackSend (color: '#36a64f',
+                            message: '''Gatling simulation succeded!\n
+                                http://localhost:8080/job/gatling-shop-demo/${BUILD_NUMBER}/Gatling_20${SIMULATION}_20Report/''')
+                        emailext (subject : "Gatling simulation results",
+                            body: '''Gatling simulation succeded!\n
+                                ${$BUILD_URL}Gatling_20${SIMULATION}_20Report/''',
+                            to: 'test@mailhog.com')
                     }
                 }
                 failure {
                     script {
-                        slackSend color: '#a83236', message: "Gatling simulation failed!\nhttp://localhost:8080/job/gatling-shop-demo/${BUILD_NUMBER}/Gatling_20${SIMULATION}_20Report/"
+                        slackSend (color: '#a83236',
+                            message: '''Gatling simulation failed!\n
+                            http://localhost:8080/job/gatling-shop-demo/${BUILD_NUMBER}/Gatling_20${SIMULATION}_20Report/''')
+                        emailext (subject : "Gatling simulation results",
+                            body: '''Gatling simulation succeded!\n
+                                ${$BUILD_URL}Gatling_20${SIMULATION}_20Report/''',
+                            to: 'test@mailhog.com')
                     }
                 }
             }
