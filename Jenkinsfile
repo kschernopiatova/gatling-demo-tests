@@ -26,18 +26,18 @@ pipeline {
                 success {
                     script {
                         slackSend (color: '#36a64f',
-                            message: "Gatling simulation succeded!\n${$BUILD_URL}/Gatling_20${SIMULATION}_20Report/")
+                            message: "Gatling simulation succeded!\n${BUILD_URL}/Gatling_20${SIMULATION}_20Report/")
                         emailext (subject : "Gatling simulation results",
-                            body: "Gatling simulation succeded!\n${$BUILD_URL}Gatling_20${SIMULATION}_20Report/",
+                            body: "Gatling simulation succeded!\n${BUILD_URL}Gatling_20${SIMULATION}_20Report/",
                             to: 'test@mailhog.com')
                     }
                 }
                 failure {
                     script {
                         slackSend (color: '#a83236',
-                            message: "Gatling simulation failed!\n${$BUILD_URL}Gatling_20${SIMULATION}_20Report/")
+                            message: "Gatling simulation failed!\n${BUILD_URL}Gatling_20${SIMULATION}_20Report/")
                         emailext (subject : "Gatling simulation results",
-                            body: "Gatling simulation succeded!\n${$BUILD_URL}Gatling_20${SIMULATION}_20Report/",
+                            body: "Gatling simulation succeded!\n${BUILD_URL}Gatling_20${SIMULATION}_20Report/",
                             to: 'test@mailhog.com')
                     }
                 }
